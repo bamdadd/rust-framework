@@ -9,7 +9,6 @@ pub struct  InMemoryDb<T> {
 
 impl<T> InMemoryDb<T> {
     pub fn new() -> Self {
-        println!("InMemoryDb::new()");
         InMemoryDb {
             items: HashMap::new(),
         }
