@@ -25,6 +25,14 @@ impl<T> InMemoryDb<T> {
     pub fn get_all(&self) -> Vec<&T> {
         self.items.values().collect()
     }
+
+    pub fn delete(&mut self, id: &String) -> Option<T> {
+        self.items.remove(id)
+    }
+
+    pub fn update(&mut self, id: &String, item: T) -> Option<T> {
+        self.items.insert(id.clone(), item)
+    }
 }
 
 // Thread safe wrapper around InMemoryDb
