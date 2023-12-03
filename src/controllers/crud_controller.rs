@@ -29,7 +29,6 @@ pub async fn add<T>(
 ) -> HttpResponse
     where
         T: Deserialize<'static> + OperationModifier + models::has_id::HasId,
-        T: Deserialize<'static> + OperationModifier + models::has_id::HasId,
 {
     let mut db = match data.lock() {
         Ok(db) => db,

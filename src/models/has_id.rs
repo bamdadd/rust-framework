@@ -3,4 +3,3 @@ pub trait HasId {
     fn set_id(&mut self, id: String);
 
 }
-

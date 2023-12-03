@@ -15,3 +15,10 @@ impl HasId for User {
         self.id = Some(id);
     }
 }
+
+// impl TypeName for User {
+//     fn get_type_name() -> String {
+//         "User".to_string()
+//     }
+//
+// }
