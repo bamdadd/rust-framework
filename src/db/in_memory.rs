@@ -1,6 +1,4 @@
 use std::collections::HashMap;
-use std::sync::{Arc, Mutex};
-
 
 #[derive(Clone)]
 pub struct  InMemoryDb<T> {
@@ -36,4 +34,4 @@ impl<T> InMemoryDb<T> {
 }
 
 // Thread safe wrapper around InMemoryDb
-pub type SharedInMemoryDb<T> = Arc<Mutex<InMemoryDb<T>>>;
+// pub type SharedInMemoryDb<T> = Arc<Mutex<InMemoryDb<T>>>;

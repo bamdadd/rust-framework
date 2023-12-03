@@ -34,13 +34,14 @@ async fn main() -> std::io::Result<()> {
             .wrap(cors)
             .service(
                 web::resource("/users")
-                    .route(web::get().to(controllers::users::get_users))
-                    .route(web::post().to(controllers::users::add_user)))
+                    .route(web::get().to(controllers::crud_controller::get_all::<User>))
+                    .route(web::post().to(controllers::crud_controller::add::<User>))
+            )
              .service(
                     web::resource("/users/{id}")
-                        .route(web::get().to(controllers::users::get_user_by_id))
-                        .route(web::delete().to(controllers::users::delete_user_by_id))
-                        .route(web::put().to(controllers::users::update_user_by_id))
+                        .route(web::get().to(controllers::crud_controller::get_by_id::<User>))
+                        .route(web::delete().to(controllers::crud_controller::delete_by_id::<User>))
+                        .route(web::put().to(controllers::crud_controller::update_by_id::<User>))
 
             )
             .with_json_spec_at("/api-docs/swagger.json")
