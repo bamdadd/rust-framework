@@ -1,5 +1,4 @@
 use std::collections::HashMap;
-use uuid::Uuid;
 use crate::models::user::User;
 
 pub struct InMemoryDb {
