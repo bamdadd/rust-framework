@@ -1,23 +1,32 @@
 use std::collections::HashMap;
-use crate::models::user::User;
+use std::sync::{Arc, Mutex};
 
-pub struct  InMemoryDb {
-    users: HashMap<String, User>,
+
+#[derive(Clone)]
+pub struct  InMemoryDb<T> {
+    pub items: HashMap<String, T>,
 }
 
-impl InMemoryDb {
+impl<T> InMemoryDb<T> {
     pub fn new() -> Self {
+        println!("InMemoryDb::new()");
         InMemoryDb {
-            users: HashMap::new(),
+            items: HashMap::new(),
         }
     }
 
-    pub fn add_user(&mut self, user: User) {
-        self.users.insert(user.id.clone(), user);
+    pub fn add(&mut self, id: String,  item: T) {
+        self.items.insert(id, item);
     }
 
-    pub fn get_user(&self, id: &String) -> Option<&User> {
-        self.users.get(id)
+    pub fn get(&self, id: &String) -> Option<&T> {
+        self.items.get(id)
+    }
+
+    pub fn get_all(&self) -> Vec<&T> {
+        self.items.values().collect()
     }
 }
 
+// Thread safe wrapper around InMemoryDb
+pub type SharedInMemoryDb<T> = Arc<Mutex<InMemoryDb<T>>>;

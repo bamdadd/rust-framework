@@ -12,6 +12,7 @@ serde = { version = "1.0", features = ["derive"] }
 utoipa = { version = "4.1.0", features = ["actix_extras"] }
 utoipa-swagger-ui = { version = "5", features = ["actix-web"] }
 serde_json = "1.0"
+log = "0.4.20"
 [dependencies.uuid]
 version = "1.6.1"
 features = [
