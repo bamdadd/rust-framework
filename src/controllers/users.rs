@@ -1,9 +1,10 @@
 use std::sync::Mutex;
+
 use actix_web::{HttpRequest, HttpResponse, web};
 use actix_web::http::StatusCode;
 use actix_web::web::Data;
 
-use crate::db::in_memory::{InMemoryDb, SharedInMemoryDb};
+use crate::db::in_memory::InMemoryDb;
 use crate::models::user::User;
 
 #[paperclip::actix::api_v2_operation]
