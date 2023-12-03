@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use crate::models::user::User;
 
-pub struct InMemoryDb {
+pub struct  InMemoryDb {
     users: HashMap<String, User>,
 }
 
