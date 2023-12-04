@@ -27,7 +27,7 @@ async fn main() -> std::io::Result<()> {
         let (aggregate_resource, entity_resource) = resources::create_resources::<User>("/users");
 
         App::new()
-            .app_data(Data::clone(&data)) // Share the cloned store
+            .app_data(Data::clone(&data))
             .wrap_api()
             .wrap(cors)
             .service(aggregate_resource)

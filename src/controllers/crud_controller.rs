@@ -12,7 +12,7 @@ use crate::models;
 #[paperclip::actix::api_v2_operation]
 pub async fn get_all<T>(data: Data<Mutex<InMemoryDb<T>>>) -> HttpResponse
     where
-        T: Serialize + Clone, // Assuming T needs to be serializable and cloneable
+        T: Serialize + Clone,
 {
     let db = match data.lock() {
         Ok(db) => db,
